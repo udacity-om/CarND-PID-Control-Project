@@ -1,6 +1,14 @@
 # CarND-Controls-PID
 Self-Driving Car Engineer Nanodegree Program
 
+## Effect of each component of the PID Controller
+* Proportional Component, P:
+* Integral Component, I:
+* Derivate Component, D:
+
+## Tuning of P,I and D coefficients
+
+
 ---
 
 ## Dependencies
