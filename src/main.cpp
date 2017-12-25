@@ -35,9 +35,15 @@ int main(/*int argc, char* argv[]*/)
   PID pid_str;
   PID pid_spd;
   // TODO: Initialize the pid_str variable.
+  #if 1
   double init_str_kp = -0.125;//atof(argv[1]);
-  double init_str_ki = -0.0005;//atof(argv[2]);
+  double init_str_ki = 0;//atof(argv[2]);
   double init_str_kd = -2.5;//atof(argv[3]);
+  #else
+  double init_str_kp = atof(argv[1]);
+  double init_str_ki = atof(argv[2]);
+  double init_str_kd = atof(argv[3]);
+  #endif
   pid_str.Init(init_str_kp, init_str_ki, init_str_kd);
   // Initialize the pid_spd variable.
   double init_spd_kp = 0;//atof(argv[4]);
