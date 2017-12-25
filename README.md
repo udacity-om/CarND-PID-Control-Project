@@ -1,13 +1,13 @@
 # CarND-Controls-PID
 Self-Driving Car Engineer Nanodegree Program
 
-## Effect of each component of the PID Controller
-* Proportional Component, P:
-* Integral Component, I:
-* Derivate Component, D:
+## Effect of each component of the PID Controller on steering angle
+* Proportional Component, P: As the name suggests, this component is proportional to the error, in this case proportional to Cross Track Error(CTE). If the CTE is more then the car will steer back hard to make the CTE small. If the P coefficient is too high then the car will overshoot the reference line(middle of track) and then the car will steer back towards the line and again overshoot on the other side creating a wobbling effect around the reference line. If the P coefficient is too low then the car's reaction will be too slow and will go off track during turns.
+* Integral Component, I: This component takes care of the accumulated error till time basically trying to remove any bais. Too high value of I coefficient might actually add a bais and the car might keep turning in circles. Too low value of I coefficient might not be enough to remove any bias.
+* Derivate Component, D: This component is proportinal to the change in error. It takes care of the wobbling effect around the reference line. Too high value of D coefficient implies the car will steer with high value most of the time quickly putting it off track. Too low value of I coeffcient will not be effective enough to remove the wobbling.
 
 ## Tuning of P,I and D coefficients
-
+I started with zeros for all coeffients to see how the car is behaving. The car just moved straight and off the track as the track was curving towards the left. So I gave a negative value to the P coeffcient and it started turning left and as the CTE increased it automatically streered to the right to reduce the CTE but after sometime it starting wobbling a lot. So i next started tuning the D coefficient. With a negative D coefficient the woblling was reduced and by trail and error I tuned the P and D coefficient until the car was able to successfully go around the track. There was no need to tune the I coeffcient as there was no bias. The car was bale to go around the track for several laps. So my final values for the coefficients of P, I and D are -0.125, 0 and -2.5
 
 ---
 
